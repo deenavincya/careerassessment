@@ -142,5 +142,7 @@ def submit():
 
     return render_template("report.html", data=data)
 
+
+
 if __name__ == '__main__':
     app.run(debug=True)
