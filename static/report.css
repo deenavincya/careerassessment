@@ -1,0 +1,183 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 30px;
+}
+
+.form-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.form-container > h1,
+.form-container > .subtitle {
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    padding-bottom: 30px;
+}
+
+.back-link {
+    padding: 0 30px 10px;
+}
+
+.back-link a {
+    text-decoration: none;
+    color: #333;
+    background-color: #ccc;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+.report-section {
+    padding: 30px;
+}
+
+.report-box {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid #28a745;
+    margin-bottom: 20px;
+}
+
+.report-box h2,
+.report-box h3 {
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+.report-box h3 span {
+    font-weight: bold;
+}
+
+.personality-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.personality-box {
+    flex: 1 1 100px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.personality-box .value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #3498db;
+}
+
+.personality-box .trait {
+    font-size: 1rem;
+    color: #444;
+    margin-top: 5px;
+}
+
+.career-match {
+    margin-top: 15px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid #4facfe;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .personality-grid {
+        flex-direction: column;
+    }
+
+    .back-link a {
+        display: block;
+        width: fit-content;
+        margin-bottom: 10px;
+    }
+}
+
+
+/* List section styles (used in interests, skills, recommendations, etc.) */
+.report-box ol,
+.report-box ul {
+    padding-left: 20px;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.report-box li {
+    background: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Career match box */
+.career-match {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    margin-bottom: 15px;
+    border-left: 4px solid #4facfe;
+}
+
+.career-match strong {
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.career-match p {
+    margin: 8px 0 10px;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.career-match ul {
+    list-style: disc inside;
+    padding-left: 15px;
+}
+
+.career-match li {
+    background: none;
+    box-shadow: none;
+    padding: 4px 0;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+/* Section header colors */
+.report-box h3 {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.report-box h3 span {
+    margin-left: 8px;
+}

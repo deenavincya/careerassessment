@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Career Assessment Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='report.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <h1>🎯 Career Assessment</h1>
+        <p class="subtitle">Discover your ideal career path through comprehensive analysis</p>
+
+        <div class="back-link">
+            ← <a href="/">Back to Assessment</a>
+        </div>
+
+        <div class="report-section">
+            <section class="report-box">
+                <h2>🎯 Career Assessment Report for {{ data.name }}</h2>
+                <p><strong>Age:</strong> {{ data.age }} | <strong>Education:</strong> {{ data.education }}</p>
+                <p><strong>Field of Study:</strong> {{ data.field_of_study }}</p>
+            </section>
+
+            <section class="report-box">
+                <h3>📊 <span>Personality Profile</span></h3>
+                <div class="personality-grid">
+                    {% for trait, value in data.personality.items() %}
+                        <div class="personality-box">
+                            <div class="value">{{ value }}%</div>
+                            <div class="trait">{{ trait }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="report-box">
+                <h3>🌟 <span>Top Interest Areas</span></h3>
+                <ol>
+                    {% for interest in data.top_interests %}
+                        <li><strong>{{ interest.name }}</strong> - {{ interest.score }}/5</li>
+                    {% endfor %}
+                </ol>
+            </section>
+
+            <section class="report-box">
+                <h3>💪 <span>Strongest Skills</span></h3>
+                <ol>
+                    {% for skill in data.strong_skills %}
+                        <li><strong>{{ skill.name }}</strong> - {{ skill.score }}/5</li>
+                    {% endfor %}
+                </ol>
+            </section>
+
+            <section class="report-box">
+                <h3>🎯 <span>Career Matches</span></h3>
+                {% for match in data.career_matches %}
+                    <div class="career-match">
+                        <strong>{{ match.title }}</strong><br>
+                        {{ match.match_percent }}% Match<br>
+                        <p>{{ match.description }}</p>
+                        <ul>
+                            {% for trait in match.traits %}
+                                <li>{{ trait }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endfor %}
+            </section>
+
+            <section class="report-box">
+                <h3>⭐ <span>Your Career Motivations</span></h3>
+                <ul>
+                    {% for motivation in data.motivations %}
+                        <li>{{ motivation }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+
+            <section class="report-box">
+                <h3>🚀 <span>Development Recommendations</span></h3>
+                <ul>
+                    {% for rec in data.recommendations %}
+                        <li><strong>{{ rec.title }}:</strong> {{ rec.description }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+
+            <section class="report-box">
+                <h3>📋 <span>Next Steps</span></h3>
+                <ul>
+                    <li>Research the top 3 career matches in detail</li>
+                    <li>Connect with professionals in those fields</li>
+                    <li>Start developing the recommended skills</li>
+                    <li>Look for relevant internship or volunteer opportunities</li>
+                    <li>Consider additional education or certifications if needed</li>
+                    <li>Retake this assessment in 6 months to track your progress</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

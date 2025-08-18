@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>✨ Career Assessment Form</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <h1>🎯 Career Assessment</h1>
+        <p>Discover your ideal career path through comprehensive analysis</p>
+
+        <form action="{{ url_for('submit') }}" method="POST">
+            <fieldset>
+                <legend>👤 Personal Information</legend>
+                <label>Full Name:</label>
+                <input type="text" name="name" required>
+
+                <label>Age:</label>
+                <input type="number" name="age" required>
+
+                <label>Current Education Level:</label>
+                <select name="education" required>
+                    <option value="">Select your level</option>
+                    <option value="High School">High School</option>
+                    <option value="Graduate">Graduate</option>
+                    <option value="Postgraduate">Postgraduate</option>
+                </select>
+
+                <label>Field of Study:</label>
+                <input type="text" name="field_of_study" placeholder="e.g., Computer Science, Business">
+            </fieldset>
+
+            <fieldset>
+                <legend>🎨 Interest Areas</legend>
+                <p>Rate from 1 (Not interested) to 5 (Very interested)</p>
+
+                {% for area in ['Technology & Programming', 'Healthcare & Medicine', 'Business & Finance', 'Arts & Creative Fields', 'Education & Training', 'Science & Research'] %}
+                    <label>{{ area }}:</label>
+                    <select name="interest_{{ loop.index }}">
+                        {% for i in range(1, 6) %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+                    </select>
+                {% endfor %}
+            </fieldset>
+
+            <fieldset>
+                <legend>🛠️ Skills Assessment</legend>
+                <p>Rate from 1 (Beginner) to 5 (Expert)</p>
+
+                {% for skill in ['Problem Solving & Critical Thinking', 'Communication & Leadership', 'Technical & Analytical Skills', 'Creativity & Innovation'] %}
+                    <label>{{ skill }}:</label>
+                    <select name="skill_{{ loop.index }}">
+                        {% for i in range(1, 6) %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+                    </select>
+                {% endfor %}
+            </fieldset>
+
+            <fieldset>
+                <legend>💼 Work Preferences</legend>
+
+                <label>Preferred Work Environment:</label>
+                <select name="work_environment">
+                    <option value="">Select preference</option>
+                    <option value="Office">Office</option>
+                    <option value="Remote">Remote</option>
+                    <option value="Hybrid">Hybrid</option>
+                </select>
+
+                <label>Preferred Team Size:</label>
+                <select name="team_size">
+                    <option value="">Select preference</option>
+                    <option value="Solo">Solo</option>
+                    <option value="Small (2-5)">Small (2-5)</option>
+                    <option value="Medium (6-10)">Medium (6-10)</option>
+                    <option value="Large (10+)">Large (10+)</option>
+                </select>
+
+                <label>Preferred Work Schedule:</label>
+                <select name="work_schedule">
+                    <option value="">Select preference</option>
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
+                    <option value="Flexible">Flexible</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>⭐ Values & Motivations</legend>
+                <p>Select all that apply:</p>
+                {% for value in ['Financial Security', 'Helping Others', 'Creative Expression', 'Innovation & Technology', 'Leadership & Management', 'Job Stability', 'Work-Life Balance', 'Recognition & Fame', 'Continuous Learning', 'Independence'] %}
+                    <input type="checkbox" name="motivations" value="{{ value }}"> {{ value }}<br>
+                {% endfor %}
+            </fieldset>
+
+            <fieldset>
+                <legend>📝 Additional Information</legend>
+
+                <label>Relevant Experience or Internships:</label>
+                <textarea name="experience" rows="3"></textarea>
+
+                <label>Career Goals (5-10 years):</label>
+                <textarea name="career_goals" rows="3"></textarea>
+
+                <label>Any Career Concerns or Constraints:</label>
+                <textarea name="constraints" rows="3"></textarea>
+            </fieldset>
+
+            <button type="submit">📈 Generate My Career Analysis Report</button>
+        </form>
+    </div>
+</body>
+</html>
